@@ -1,0 +1,7 @@
+link: https://django.fun/ru/docs/django/4.1/intro/tutorial01/
+
+Описание: изучаем Django 4.1 по документации с официального сайта
+
+План:
+  1. Сначала задействуем Git
+    - Создаем репозиторий на github: git@github.com:sanek200000/docker.docs.git
