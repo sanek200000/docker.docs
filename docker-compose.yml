@@ -1,30 +1,30 @@
 version: '3.9'
 
 services:
-  app:
+  web:
     build:
       context: .
     ports:
       - '8000:8000'
     volumes:
-      - ./app:/app
+      #- .:/code # for build
+      - ./mysite:/code # for up
     command: >
-      sh -c 'python manage.py runserver 0.0.0.0:8000'
-  #    sh -c 'python manage.py migrate && python manage.py runserver 0.0.0.0:8000'
-  #  environment:
-  #    - DB_HOST=db
-  #    - DB_NAME=app
-  #    - DB_USER=postgres
-  #    - DB_PASS=111
-  #    - DB_PORT=5432
-  #  depends_on:
-  #    - db
+      sh -c 'python manage.py migrate && python manage.py runserver 0.0.0.0:8000'
+    environment:
+      - DB_HOST=db
+      - DB_NAME=app
+      - DB_USER=postgres
+      - DB_PASS=111
+      - DB_PORT=5432
+    depends_on:
+      - db
 
-  #db:
-  #  image: postgres:10-alpine
-  #  environment:
-  #    - POSTGRES_DB=app
-  #    - POSTGRES_USER=postgres
-  #    - POSTGRES_PASSWORD=111
-  #  ports:
-  #    - "5432:5432"
+  db:
+    image: postgres:11-alpine
+    environment:
+      - POSTGRES_DB=app
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=111
+    ports:
+      - "5432:5432"
