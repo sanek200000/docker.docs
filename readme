@@ -15,3 +15,4 @@ link: https://django.fun/ru/docs/django/4.1/intro/tutorial01/
       и установку PostgreSQL
     - билдим и запускаем контейнер
   3. Пишем проект Django по документации
+
